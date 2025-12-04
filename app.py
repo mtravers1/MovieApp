@@ -358,7 +358,6 @@ from flask_jwt_extended import (
 app = Flask(__name__)
 app.secret_key = "secretkey"
 
-# JWT SETTINGS
 app.config["JWT_SECRET_KEY"] = "secretkey"
 app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
 app.config["JWT_COOKIE_SECURE"] = False
@@ -367,7 +366,6 @@ jwt = JWTManager(app)
 
 app.config["UPLOADED_PHOTOS_DEST"] = "static"
 
-# Database connection
 cnx = mysql.connector.connect(
     user='root',
     password='MyPassword',
@@ -376,19 +374,6 @@ cnx = mysql.connector.connect(
     auth_plugin='mysql_native_password'
 )
 
-# ================================
-# CREATE MOVIES TABLE
-# ================================
-# cursor.execute("""
-# CREATE TABLE IF NOT EXISTS movies (
-#     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-#     title VARCHAR(255),
-#     year INT,
-#     director VARCHAR(255),
-#     writters TEXT,
-#     stars TEXT
-# );
-# """)
 movies = [
     {
         "id": 0,
